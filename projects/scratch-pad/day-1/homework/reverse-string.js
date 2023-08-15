@@ -21,7 +21,14 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
+    //Declare a variable to hold the reversed string
+    var revStr = ''
+    //Push every letter in the input string into revStr in reverse order
+    for (var i = input.length; i >= 0; i--){
+      revStr += input.charAt(i)
+    }
+    //retrun revStr
+    return revStr
     
     
     

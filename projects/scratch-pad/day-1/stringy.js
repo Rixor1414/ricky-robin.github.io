@@ -14,6 +14,7 @@
  */
 function length(string) {
     // YOUR CODE BELOW HERE //
+    //return the length of the string
     return string.length
 
 
@@ -25,7 +26,8 @@ function length(string) {
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
-
+    //Use the method to return the string in lowercase
+return string.toLowerCase()
 
 
     // YOUR CODE ABOVE HERE //
@@ -36,7 +38,8 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
-
+    //Use the method to return the string in uppercase
+return string.toUpperCase()
 
 
     // YOUR CODE ABOVE HERE //
@@ -57,7 +60,10 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-
+    //New string to make lowercase
+    var newStr = string.toLowerCase()
+    //Return newStr with every space replaced with a dash
+return newStr.replace(/ /g, "-")
 
 
     // YOUR CODE ABOVE HERE //
@@ -77,7 +83,15 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
+    //Declare new strigs to hold the arguments in lowercase
+    var newStr = string.toLowerCase()
+    var newChar = char.toLowerCase()
+    //Compare the arguments and return true or false
+if (newStr.charAt(0) === newChar){
+    return true
+}else {
+    return false
+}
     
 
     // YOUR CODE ABOVE HERE //
@@ -97,7 +111,15 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
+//Declare new strigs to hold the arguments in lowercase
+var newStr = string.toLowerCase()
+var newChar = char.toLowerCase()
+//return true if the string ends in the character, false otherweise
+if (newStr.charAt(string.length - 1) === newChar){
+    return true
+}else {
+    return false
+}
 
 
     // YOUR CODE ABOVE HERE //
@@ -110,8 +132,10 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+// declare a new string containing both the arguments
+var newStr = stringOne + stringTwo
+//return newStr
+return newStr
 
     // YOUR CODE ABOVE HERE //
 }
@@ -128,7 +152,16 @@ function concat(stringOne, stringTwo) {
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    //declare a variable containing the arguments in an array
     var args = Array.from(arguments);
+    //Declare a new array to pass values into
+    var newArr = ''
+    //Pass every value in the args array into the new array in order
+    for (var i = 0; i < args.length; i++){
+        newArr += args[i]
+    }
+    //return newArr
+    return newArr
 
 
     // YOUR CODE ABOVE HERE //
@@ -145,7 +178,12 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+//Check which argument is longer and return the longer one
+if (stringOne.length > stringTwo.length){
+    return stringOne
+}else{
+    return stringTwo
+}
 
 
     // YOUR CODE ABOVE HERE //

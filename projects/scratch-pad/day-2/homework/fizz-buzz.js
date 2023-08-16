@@ -12,7 +12,12 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
+//loop from 1 to 100
+for (var i = 1; i <= 100; i++){
+    if (i % 5 === 0 && i % 3 != 0){
 
+    }
+}
 
 
     // YOUR CODE GOES ABOVE HERE //

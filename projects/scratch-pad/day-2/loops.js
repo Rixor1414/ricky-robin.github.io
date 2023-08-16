@@ -29,7 +29,7 @@ function printArrayValues(array) {
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
   //create a for loop to iterate through the array and log each value backwards
-for (var i = array.length; i >=; i--){
+for (var i = array.length - 1; i >= 0; i--){
   console.log(array[i])
  }
   
@@ -42,7 +42,8 @@ for (var i = array.length; i >=; i--){
  */
 function getObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  
+  //create return the keys of the object using the object.keys method 
+  return Object.keys(object)
   
   
   
@@ -55,7 +56,10 @@ function getObjectKeys(object) {
  */
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  
+  //Iterate through the object using a for in loop and log the keys
+  for (var key in object){
+    console.log(key)
+  }
   
   
   
@@ -67,7 +71,8 @@ function printObjectKeys(object) {
  */
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
+  //Use the values method to return an array containing the values in the object
+  return Object.values(object)
   
   
   
@@ -80,7 +85,10 @@ function getObjectValues(object) {
  */
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
+  //iterate through the object using a for in loop and log each value for each key
+  for (var key in object){
+    console.log(object[key])
+  }
   
   
   
@@ -92,7 +100,10 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
-  
+  //Create an array holding the keys in an object
+  var array = Object.keys(object)
+  //return the length of the array
+  return array.length
   
   
   
@@ -105,8 +116,12 @@ function getObjectLength(object) {
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
-  
-  
+  //create an array containing the values to iterate through backwards
+  var array = Object.values(object)
+  //log the array in reverse
+  for (var i = array.length - 1; i > -1; i--){
+    console.log(array[i])
+  }
   
   
   // YOUR CODE ABOVE HERE //

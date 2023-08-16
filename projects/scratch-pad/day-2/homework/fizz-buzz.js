@@ -14,8 +14,18 @@ function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
 //loop from 1 to 100
 for (var i = 1; i <= 100; i++){
+    //check if i is a multiple of 5 but not 3 and print buzz if true
     if (i % 5 === 0 && i % 3 != 0){
-
+        console.log("Buzz")
+        //check if i is a multiple of 3 but not 5 and print fizz if true
+    }else if (i % 3 === 0 && i % 5 != 0){
+        console.log("Fizz")
+        //Check if i is a multiple of both 3 and 5 and print fizzbuzz if true
+    }else if (i % 3 === 0 && i % 5 === 0 ){
+        console.log("FizzBuzz")
+        //print the number as normal if none of the above are true.
+    }else {
+        console.log(i)
     }
 }
 

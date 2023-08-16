@@ -12,7 +12,10 @@
  */
 function printArrayValues(array) {
   // YOUR CODE BELOW HERE //
-  
+  //create a for loop to iterate through the array and log each value
+  for (var i = 0; i < array.length; i++){
+    console.log(array[i])
+  }
   
   
   
@@ -25,8 +28,10 @@ function printArrayValues(array) {
  */
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
-  
-  
+  //create a for loop to iterate through the array and log each value backwards
+for (var i = array.length; i >=; i--){
+  console.log(array[i])
+ }
   
   
   // YOUR CODE ABOVE HERE //

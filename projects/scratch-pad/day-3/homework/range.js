@@ -23,8 +23,18 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    //crea
-    
+    //create a function that returns an array of all the values between two given values, and in reverse order if the first value is higher.
+    var array = []
+    if (start < end){
+        for (var i = start; i <= end; i++){
+            array.push(i)
+        }
+    }else {
+        for (var i = start; i >= end; i--){
+            array.push(i)
+        }
+    }
+    return array
     
     
     // YOUR CODE GOES ABOVE HERE //

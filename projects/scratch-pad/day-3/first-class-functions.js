@@ -2,6 +2,8 @@
 
 'use strict';
 
+const { toUpperCase } = require("../day-1/stringy");
+
 /**
  * IN CLASS EXERCISE: FIRST CLASS FUNCTIONS
  */
@@ -34,6 +36,7 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
+    //return a function that evaluates to true if the value is less than the base, and false otherwise.
     return function (val){
         if (val < base){
             return true
@@ -51,9 +54,17 @@ function createLessThanFilter(base) {
  * Function that tests whether a given String starts with the startsWith 
  * character.
  */
+//create a function that returns a function that resolves to true if the string starts with the specified character
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+    return function (str){
+        str.toUpperCase()
+        if (str.charAt(0) === startsWith){
+            return true
+        }else {
+            return false
+        }
+    }
     
     
     

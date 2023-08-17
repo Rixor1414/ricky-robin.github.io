@@ -57,9 +57,12 @@ function createLessThanFilter(base) {
 //create a function that returns a function that resolves to true if the string starts with the specified character
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
+    
     return function (str){
-        str.toUpperCase()
-        if (str.charAt(0) === startsWith){
+        var upperStarts = startsWith.toUpperCase()
+        var upper = str.toUpperCase()
+        console.log(upper)
+        if (upper.charAt(0) === upperStarts){
             return true
         }else {
             return false
@@ -78,6 +81,17 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
+     //return a function that standardizes the cases and returns true if the last letter of as given string is the same as a given letter and false otherwise.
+    return function (str){
+        var upperEnds = endsWith.toUpperCase()
+        var upper = str.toUpperCase()
+        console.log(upper)
+        if (upper.charAt(upper.length - 1) === upperEnds){
+            return true
+        }else {
+            return false
+        }
+    }
     
     
     
@@ -94,7 +108,14 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
+    //create an array to hold the new strings
+    var array = []
+    //loop through the strings argument and run the modify function on each element
+    for (var i = 0; i <  strings.length; i++){
+        array.push(modify(strings[i]))
+    }
+    //return the array
+    return array
     
     
     
@@ -112,7 +133,20 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
+    //create an array to hold the true values after the test
+    var array = []
+    //loop through the strings array and passss every value thst returns true when tested into the array
+    for (var i = 0; i < strings.length; i++){
+        if (test(strings[i]) === true){
+            array.push(strings[i])
+        }
+    }
+    //check if the new array is equal in length to the strings array and return true if so, and false if not.
+    if (array.length === strings.length){
+        return true
+    }else {
+        return false
+    }
     
     
     

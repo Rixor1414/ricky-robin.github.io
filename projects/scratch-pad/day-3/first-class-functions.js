@@ -13,22 +13,14 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    return function (val, base){
-        if (typeof base === "number"){
+    //return a function that evaluates to true if the value is greater than the base, and false otherwise.
+    return function (val){
             if (val > base){
                 return true
             }else {
                 return false
             }
-        }else if (typeof base === "string"){
-            if (val > base.length){
-                return true
-            }else {
-                return false
-                }
-            }
         }
-    }
     
     
     
@@ -42,8 +34,13 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
+    return function (val){
+        if (val < base){
+            return true
+        }else {
+            return false
+        }
+    }
     
     
     // YOUR CODE ABOVE HERE //

@@ -13,7 +13,22 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    return function (val, base){
+        if (typeof base === "number"){
+            if (val > base){
+                return true
+            }else {
+                return false
+            }
+        }else if (typeof base === "string"){
+            if (val > base.length){
+                return true
+            }else {
+                return false
+                }
+            }
+        }
+    }
     
     
     

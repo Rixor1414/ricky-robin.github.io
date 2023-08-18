@@ -35,7 +35,13 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-
+//convert the arguments into a contact object and return it
+var object = {
+    id: id,
+    nameFirst: nameFirst,
+    nameLast: nameLast
+}
+return object
 } 
 
 
@@ -43,12 +49,47 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
-    
+    //hold the contacts in an array
+    var contacts = []
+    //return the factory object containing other functions as properties
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+        //push the contact into the contaacts array
+        addContact: function(contact) {
+            contacts.push(contact)
+        },
+        findContact: function(fullName) {
+            var array = fullName.split(" ")
+            for (var i = 0; i < contacts.length; i++){
+                if (contacts[i].nameFirst === array[0] && contacts[i].nameLast === array[1]){
+                    return contacts[i]
+                }else {
+                    return undefined
+                }
+            }
+        },
+        removeContact: function(contact) {
+            //loop through the contatcts array and remove the object equal to the argument
+            for (var i = 0; i < contacts.length; i++){
+                if (contacts[i] === contact){
+                    contacts.splice(i, 1)
+                }
+            }
+        },
+        printAllContactNames: function() {
+            //loop through the contacts array to find each fullname and push them into the names array with a space seperating them
+            var names = []
+            for (var i = 0; i < contacts.length; i++){
+            //creare a variable to store the full name
+            var fullName = contacts[i].nameFirst + " " + contacts[i].nameLast
+            names.push(fullName)
+            }
+            //return the names array with each element seperated by a line break
+            return names.join("\n")
+
         }
     }
 }

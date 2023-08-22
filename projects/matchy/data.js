@@ -67,11 +67,15 @@ animals.push(hamster)
 
 var friends = [] //This is the easiest for me to loop through
 function getRandom(array){
-  return Math.random() * array.length;
+  var round = Math.round(Math.random() * array.length);
+  if (round > array.length - 1){
+    round--
+  }
+  return round
 }
-
+//console.log(getRandom(animals))
 friends.push(animals[getRandom(animals)].name)
-//console.log(friends)
+animals[0].friends = friends
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
  * move onto Part 2 in the file called "functions.js"

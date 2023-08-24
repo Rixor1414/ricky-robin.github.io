@@ -94,18 +94,20 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-if (array_key_exists(object, "noises")){
-    
-    return object.noises.join(" ")
-}
-}
+    if ( Object.keys(object).length > 0 && object.noises.length > 0 ){
+        return object.noises.join(" ")
+    }else {
+        return "there are no noises"
+    }
+    }
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+var array = string.split(" ")
+return array.includes(word)
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -113,7 +115,8 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+object.friends.push(name)
+return object
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -121,7 +124,19 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+    function isEmpty(obj) {
+        for(var prop in obj) {
+            if(obj.hasOwnProperty(prop)){
+                return false
+        }
+        }
+        return true
+    }
+    if (isEmpty(object) === false) {
+        return object.friends.includes(name)
+    }else {
+        return false
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -129,7 +144,13 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    var array1 = []
+    for (var i = 0; i < array.length; array++){
+        if (array[i].name !== name && array[i].friends.includes(name) === false){
+            array1.push(array[i].name)
+        }
+    }
+    return array1
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -137,7 +158,8 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+object[key] = value
+return object
 }
 
 //////////////////////////////////////////////////////////////////////

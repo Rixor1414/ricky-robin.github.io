@@ -3,7 +3,14 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles() {
+function triangles(num) {
+var logger = ""
+var i = 0
+while (i < num){
+  i++
+  logger += "#"
+  console.log(logger)
+}
 
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -11,17 +18,44 @@ function triangles() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function fizzBuzz() {
-  
+  for (var i = 1; i <= 15; i++){
+    //check if i is a multiple of 5 but not 3 and print buzz if true
+    if (i % 5 === 0 && i % 3 != 0){
+        console.log("buzz")
+        //check if i is a multiple of 3 but not 5 and print fizz if true
+    }else if (i % 3 === 0 && i % 5 != 0){
+        console.log("fizz")
+        //Check if i is a multiple of both 3 and 5 and print fizzbuzz if true
+    }else if (i % 3 === 0 && i % 5 === 0 ){
+        console.log("fizzbuzz")
+        //print the number as normal if none of the above are true.
+    }else {
+        console.log(i)
+    }
+}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
-
-}
-
+function drawChessboard(num) {
+    var i = 0;
+    var logger = "";
+  
+    for (var i = 0; i < num; i++) {
+      for (var j = 0; j < num; j++) {
+        if ((i + j) % 2 === 0) {
+          logger += " ";
+        } else {
+          logger += "#";
+        }
+      }
+      logger += "\n";
+    }
+  
+    console.log(logger);
+  }
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////

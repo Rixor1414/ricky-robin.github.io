@@ -168,20 +168,14 @@ module.exports.indexOf = indexOf
   }
   module.exports.filter = filter
 
-  ////Continue editing here
-  ///
-  ///
-  ///
-  ///
-  ///
-  /**
- * partition: Partitions an array into two arrays based on a partitioning function.
+/**
+ * partition: Splits an array into two arrays based on a partitioning function.
  * 
- * @param {Array} array: The array to partition.
- * @param {Function} test: The function used to determine which partition an element belongs to.
- * @returns {Array[]}: An array containing two arrays - one with elements that passed the test, and one with elements that didn't.
+ * @param {Array}: The array to partition.
+ * @param {Function}: The function used to determine which array an element belongs to, true or false
+ * @returns {Array}:  An array containing two sub arrays, one with the passed values and one with the failed ones
  */
-  _.partition = function (array, test) {
+function partition(array, test) {
     var trueArray = []
     var falseArray = []
     _.each(array, function (element, index, collection) {
@@ -193,28 +187,28 @@ module.exports.indexOf = indexOf
     })
     return [trueArray, falseArray]
   }
-
+module.exports.partition = partition
   /**
- * pluck: Extracts a specific property from a collection of objects.
+ * pluck: Finds a  property in a collection of objects.
  * 
- * @param {Array} array: The array of objects to extract properties from.
- * @param {string} prop: The name of the property to extract.
+ * @param {Array}: The array of objects to find the elements in.
+ * @param {string}: The name of the property to find.
  * @returns {Array}: An array containing the values of the specified property from each object.
  */
-  _.pluck = function (array, prop){
+function pluck(array, prop){
     return _.map(array, function (obj){
       return obj[prop]
     })
   }
-
+module.exports.pluck = pluck
   /**
- * every: Tests whether all elements in a collection pass a given test.
+ * every: Tests whether all elements in a collection pass a test.
  * 
- * @param {Array or Object} collection: The collection to test.
- * @param {Function} test: The function that each element in the collection is tested against.
- * @returns {boolean}: True if all elements pass the test, otherwise false.
+ * @param {Array or Object}: The collection to test.
+ * @param {Function}: The function that each element in the collection is tested with.
+ * @returns {boolean}: True if all elements pass the test, false otherwise.
  */
-  _.every = function (collection, test) {
+function every(collection, test) {
     var passed = true
     _.each(collection, function (element, index, collection){
       if (typeof test !== "function"){
@@ -227,7 +221,7 @@ module.exports.indexOf = indexOf
     })
     return passed
   }
-
+module.exports.every = every
   /**
  * some: Tests whether at least one element in a collection passes a given test.
  * 

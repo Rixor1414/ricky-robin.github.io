@@ -223,16 +223,14 @@ function every(collection, test) {
   }
 module.exports.every = every
 
-///here
-///
   /**
- * some: Tests whether at least one element in a collection passes a given test.
+ * some: Tests whether at least one element in a collection passes a test.
  * 
- * @param {Array or Object} collection: The collection to test.
- * @param {Function} test: The function that each element in the collection is tested against.
+ * @param {Array or Object}: The collection to test.
+ * @param {Function}: The function that each element in the collection is tested for.
  * @returns {boolean}: True if at least one element passes the test, otherwise false.
  */
-  _.some = function (collection, test){
+function some(collection, test){
     var passed = false
     _.each(collection, function (element, index, collection){
       if (typeof test !== "function"){
@@ -245,16 +243,16 @@ module.exports.every = every
     })
     return passed
   }
-
+module.exports.some = some
   /**
- * reduce: Reduces an array to a single value using a reducing function.
+ * reduce: Reduces an array to a single value using a function.
  * 
  * @param {Array} array: The array to reduce.
  * @param {Function} func: The function that combines elements into a single value.
- * @param {any} seed: An optional initial value for the reduction.
- * @returns {any}: The final reduced value.
+ * @param {value}: An initial value for the reduction.
+ * @returns {value}: The reduced reduced value.
  */
-  _.reduce = function (array, func, seed) {
+ function reduce(array, func, seed) {
     var output
     var Index
   
@@ -272,15 +270,15 @@ module.exports.every = every
   
     return output
   }
-
+module.exports.reduce = reduce
 /**
- * extend: Extends an object with the properties of one or more other objects.
+ * extend: Extends an object with by adding the properties of other objects.
  * 
- * @param {Object} objects: The target object to extend.
- * @param {...Object} arguments: The objects whose properties will be added to the target object.
+ * @param {Object}: The target object to extend.
+ * @param {...Object}: The object or objects whose properties will be added to the target object.
  * @returns {Object}: The extended target object.
  */
-  _.extend = function (objects) {
+function extend(objects) {
     for (var i = 1; i < arguments.length; i++) {
       for (var key in arguments[i]) {
         objects[key] = arguments[i][key]
@@ -288,3 +286,4 @@ module.exports.every = every
     }
     return objects
   }
+  module.exports.extend = extend

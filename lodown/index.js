@@ -222,6 +222,9 @@ function every(collection, test) {
     return passed
   }
 module.exports.every = every
+
+///here
+///
   /**
  * some: Tests whether at least one element in a collection passes a given test.
  * 
@@ -252,22 +255,22 @@ module.exports.every = every
  * @returns {any}: The final reduced value.
  */
   _.reduce = function (array, func, seed) {
-    var previousResult
+    var output
     var Index
   
     if (seed !== undefined) {
-      previousResult = seed
+      output = seed
       Index = 0
     } else {
-      previousResult = array[0]
+      output = array[0]
       Index = 1
     }
   
     for (var i = Index; i < array.length; i++){
-      previousResult = func(previousResult, array[i], i)
+      output = func(output, array[i], i)
     }
   
-    return previousResult
+    return output
   }
 
 /**

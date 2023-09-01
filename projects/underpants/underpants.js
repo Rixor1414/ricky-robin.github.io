@@ -20,7 +20,7 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
-function identity(value) {
+_.identity = function(value) {
   return value;
 }
 
@@ -403,22 +403,22 @@ _.some = function (collection, test){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 _.reduce = function (array, func, seed) {
-    var previousResult
+    var output
     var Index
   
     if (seed !== undefined) {
-      previousResult = seed
+      output = seed
       Index = 0
     } else {
-      previousResult = array[0]
+      output = array[0]
       Index = 1
     }
   
     for (var i = Index; i < array.length; i++){
-      previousResult = func(previousResult, array[i], i)
+      output = func(output, array[i], i)
     }
   
-    return previousResult
+    return output
   }
 
 /** _.extend

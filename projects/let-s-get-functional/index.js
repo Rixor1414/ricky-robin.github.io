@@ -79,15 +79,80 @@ var averageBalance = function(array){
 return average / newarr.length
 }
 
-var firstLetterCount;
+var firstLetterCount = function(array, letter){
+  return array.filter(function(customer) {
+    return customer.name.charAt(0).toLowerCase() === letter.toLowerCase();
+  }).length;
+};
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function(array, cusName, letter){
+    let count = 0;
+    var letterLower = letter.toLowerCase()
+  
+    _.each(array, function(customer) {
+      if (customer.name === cusName){
+        count += firstLetterCount(customer.friends, letterLower)
+      }
 
-var friendsCount;
+    })
+  return count
+}
 
-var topThreeTags;
+var friendsCount = function(array, name){
+  let newarr = []
 
-var genderCount;
+  _.each(array, function(customer) {
+    if (_.some(customer.friends, function(friend) {
+      return friend.name === name
+    })) {
+      newarr.push(customer.name)
+    }
+  })
+
+  return newarr
+};
+
+var topThreeTags = function(array){
+const allTags = []
+const counts = {}
+let newArr = []
+  _.each(array, function(customer){
+    for (let i = 0; i < customer.tags.length; i++){
+      allTags.push(customer.tags[i])
+    }
+  })
+  for (let i = 0; i < allTags.length; i++){
+    counts[allTags[i]] = 1
+    for (let j = 0; j < allTags.length; j++){
+      if (i !== j){
+        if (allTags[i] === allTags[j]){
+          counts[allTags[i]] += 1
+
+        }
+      }
+    }
+  }
+  for (let key in counts){
+    if (counts[key] > 2){
+      newArr.push(key)
+    }
+  }
+return newArr
+}
+
+var genderCount = function(array){
+  return array.reduce(function(genderCounts, customer) {
+    if (customer.gender === 'male') {
+      genderCounts.male++
+    } else if (customer.gender === 'female') {
+      genderCounts.female++
+    }
+    return genderCounts
+  }, {
+    female: 0,
+    male: 0
+  })
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

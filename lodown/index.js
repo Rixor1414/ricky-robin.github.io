@@ -247,10 +247,10 @@ module.exports.some = some
   /**
  * reduce: Reduces an array to a single value using a function.
  * 
- * @param {Array} array: The array to reduce.
- * @param {Function} func: The function that combines elements into a single value.
+ * @param {Array}: The array to reduce.
+ * @param {Function}: The function that combines elements into a single value.
  * @param {value}: An initial value for the reduction.
- * @returns {value}: The reduced reduced value.
+ * @returns {value}: The reduced value.
  */
  function reduce(array, func, seed) {
     var output

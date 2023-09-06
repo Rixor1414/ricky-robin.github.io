@@ -85,22 +85,48 @@ var range = function(x, y) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
-};
-
+  if (exp === 0) {
+    return 1
+  } else if (exp < 0) {
+    return 1 / (base * exponent(base, -exp - 1))
+  } else {
+    return base * exponent(base, exp - 1)
+  }
+}
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
-};
+  if (n === 1) {
+    return true
+  } else if (n < 1 || n % 2 !== 0) {
+    return false
+  } else {
+    return powerOfTwo(n / 2)
+  }
+}
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
-};
+  if (string === "") {
+    return ""
+  } else {
+    return reverse(string.substr(1)) + string[0]
+  }
+}
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-};
+  string = string.toLowerCase().replace(/\s/g, '')
+  if (string.length <= 1) {
+    return true
+  } else if (string[0] === string[string.length - 1]) {
+    return palindrome(string.slice(1, -1))
+  } else {
+    return false
+  }
+}
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
@@ -114,6 +140,13 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
+  if (y === 0) {
+    return 0
+  } else if (y < 0) {
+    return -x + multiply(x, y + 1)
+  } else {
+    return x + multiply(x, y - 1)
+  }
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -135,33 +168,70 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
-};
+ 
+if (str1.length === 0 && str1 === str2) {
+    return true
+  }
+  
+  if (str1[0] === str2[0]) {
+    return compareStr(str1.slice(1), str2.slice(1));
+  } else {
+    return false
+  }
+}
+
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str){
-};
+var createArray = function(str) {
+  if (str === "") {
+    return []
+  } else {
+    return [str[0]].concat(createArray(str.slice(1)))
+  }
+}
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
-};
-
+var reverseArr = function(array) {
+  if (array.length === 0) {
+    return []
+  } else {
+    return [array[array.length - 1]].concat(reverseArr(array.slice(0, -1)))
+  }
+}
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
-};
+  if (length === 0) {
+    return []
+  } else {
+    return [value].concat(buildList(value, length - 1))
+  }
+}
+
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value) {
-};
+  if (array.length === 0) {
+    return 0
+  } else {
+    return (array[0] === value ? 1 : 0) + countOccurrence(array.slice(1), value)
+  }
+}
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
-};
+  if (array.length === 0) {
+    return []
+  } else {
+    return [callback(array[0])].concat(rMap(array.slice(1), callback))
+  }
+}
+
 
 // 21. Write a function that counts the number of times a key occurs in an object.
 // var testobj = {'e': {'x':'y'}, 't':{'r': {'e':'r'}, 'p': {'y':'r'}},'y':'e'};
@@ -188,14 +258,32 @@ var replaceKeysInObj = function(obj, key, newKey) {
 // fibonacci(5);  // [0, 1, 1, 2, 3, 5]
 // Note:  The 0 is not counted.
 var fibonacci = function(n) {
-};
-
+  if (n <= 0) {
+    return []
+  }
+  if (n === 1) {
+    return [0]
+  }
+  if (n === 2) {
+    return [0, 1]
+  }
+  var fib = fibonacci(n - 1)
+  fib.push(fib[fib.length - 1] + fib[fib.length - 2])
+  return fib
+}
 // 25. Return the Fibonacci number located at index n of the Fibonacci sequence.
 // [0,1,1,2,3,5,8,13,21]
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n) {
+var nthFibo = function(n, fib=[0, 1]) {
+  if (n === 1) {
+    return 0;
+  }
+  if (n === 2) {
+    return 1;
+  }
+  return nthFibo(n - 1) + nthFibo(n - 2);
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.

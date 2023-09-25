@@ -3,11 +3,11 @@
  
  * 0 Varieables: are named tags for values in javascript. Variables are created using declaring keywords such as var or let.
  
- * 1 Declaration and assignment: To create a variable in JS you have to declare it using either Var, Let, or Const. Let is block scoped, var is not, and const cannot be redeclared or altered
+ * 1 Declaration and assignment: To create a variable in JS you have to declare it using either Var, Let, or Const. Let is block scoped, var is global scoped, and const cannot be redeclared or altered
  
- * 2 Var Let and Const: Var Let and Const are keywords used to declare variables in javascript.
+ * 2 Var Let and Const: Var Let and Const are keywords used to declare variables in javascript. Let is block scoped, var is global scoped, and const cannot be redeclared or altered
  
- * 3 Hoisting: Variables are moved to the top of their scope before code execution
+ * 3 Hoisting: Variables declared with var are moved to the top of their scope before code execution
  
  */
 
@@ -25,6 +25,10 @@ if (true){
     let vari1 = "Goodbye"
     console.log(vari) //prints "Goodbye"
 }
+console.log(vari) /// prints reference error: vari is not defined
+//const
+const str = "hello"
+str = "goodbye"// prints type error, cannot assign to constant variable.
 //3 hoisting
 console.log(declaration) //prints true
 var declaration = true

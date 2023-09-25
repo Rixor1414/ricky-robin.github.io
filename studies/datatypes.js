@@ -45,6 +45,9 @@
  *   Their values can be changed after they are created.
  *   When assigning a complex type to another variable, a reference to the original value is created.
  *   Modifying the copy also modifies the original.
+ *  - copy by value vs copy by reference:
+ *    - Primatvie datatypes are copy-by-value, meaning that they can be assigned to a different variable without affecting that variable.
+ *    - Non-primative datatypes are copy-by-reference, meaning that any variables assigned to the will change when the base value does
  * 
  */
 // Number
@@ -79,3 +82,20 @@ let result = "apple" / 2; // NaN
 // Infinity and -Infinity
 let positiveInfinity = Infinity;
 let negativeInfinity = -Infinity;
+
+//Copy by value
+let x = 12
+let y = x
+x = 11
+console.log(y) //prints 12
+console.log(x) //prints 11
+
+//Copy by reference
+let obj = {
+  a:1,
+  b:2,
+  c:3
+}
+let obj2 = obj
+obj.a = 4
+console.log(obj2) // prints {a:4,b:2,c:1}

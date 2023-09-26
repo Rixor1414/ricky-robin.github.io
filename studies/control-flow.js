@@ -34,7 +34,7 @@ if (grade >= 90) {
  
 /**
  * 3. else Statement:
- *    - The 'else' statement is used in conjunction with the 'if' statement to provide an alternative code block to execute when the condition is false.
+ *    - The 'else' statement is used in conjunction with the 'if' or "else if" statement to provide an alternative code block to execute when the condition is false.
  * 
  * Example:
  */

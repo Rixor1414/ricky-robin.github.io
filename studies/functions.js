@@ -4,7 +4,7 @@
  * There are two phases to using functions: First, you declare a function. Then you invoke a function by calling it.
  * Functions have parameters (placeholders for input values) and can return a single value.
  * Functions can see and modify variables in parent or global scopes, but the inverse is not true.
- * Functions form closures around the data they house, allowing data to exist as long as the closure is referenced.
+ * Functions form closures around the data they house, allowing functions to hold onto data from a parent function after it has closed.
  */
 
 // Defining a function
@@ -45,12 +45,18 @@ let globalVar = 10;
 function global() {
     globalVar = 20; // Functions can modify global variables
 }
+function scope(){
+    let scopeVar = 12
+}
 
 function Closure() {
-    var globalVar = 5;
-    return globalVar
+    var outer = 5;
+    return function(){
+        return outer
+    }
 }
 
 
 console.log(global); // Outputs '20' after calling modifyGlobal
 console.log(closure); // Outputs '5' from the closure
+console.log(scopeVar) //Prints "Reference error, scopeVar is not defined"
